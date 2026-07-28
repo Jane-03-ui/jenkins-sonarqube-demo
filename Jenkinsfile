@@ -40,18 +40,12 @@ pipeline {
         }
 
         stage('Build Docker Image') {
-            when {
-                branch 'main'
-            }
             steps {
                 sh 'docker build -t fastapi-demo .'
             }
         }
 
         stage('Stop Old Container') {
-            when {
-                branch 'main'
-            }
             steps {
                 sh 'docker rm -f fastapi-app || true'
             }
@@ -64,9 +58,6 @@ pipeline {
         }
 
         stage('Deployment Status') {
-            when {
-                branch 'main'
-            }
             steps {
                 sh 'docker ps'
             }
