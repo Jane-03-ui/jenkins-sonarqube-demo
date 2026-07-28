@@ -58,9 +58,6 @@ pipeline {
         }
 
         stage('Deploy Container') {
-            when {
-                branch 'main'
-            }
             steps {
                 sh 'docker run -d --name fastapi-app -p 8000:8000 fastapi-demo'
             }
