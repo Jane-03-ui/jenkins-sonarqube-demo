@@ -44,7 +44,7 @@ pipeline {
                 branch 'main'
             }
             steps {
-                sh 'docker build -t etv-app .'
+                sh 'docker build -t fastapi-demo .'
             }
         }
 
@@ -53,7 +53,7 @@ pipeline {
                 branch 'main'
             }
             steps {
-                sh 'docker rm -f etv-container || true'
+                sh 'docker rm -f fastapi-app || true'
             }
         }
 
@@ -62,7 +62,7 @@ pipeline {
                 branch 'main'
             }
             steps {
-                sh 'docker run -d --name etv-container -p 8000:8000 etv-app'
+                sh 'docker run -d --name fastapi-app -p 8000:8000 fastapi-demo'
             }
         }
 
